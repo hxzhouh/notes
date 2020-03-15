@@ -146,4 +146,3 @@ foo1 和 foo2 是同样的类型，都是 Foo 类型的值，foo1 是通过 var 
 
 - make(T) 返回的初始化的 T，只能用于 slice，map，channel。
 
-![image-20200311234747976](理解 Go make 和 new 的区别.assets/image-20200311234747976.png)
