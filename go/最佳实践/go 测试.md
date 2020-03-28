@@ -96,4 +96,3 @@ b.StartTimer()
 
 ### http/pprof
 
-*XMind: ZEN - Trial Version*
