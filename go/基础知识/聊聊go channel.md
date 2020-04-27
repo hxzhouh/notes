@@ -107,7 +107,7 @@ func makechan(t *chantype, size int) *hchan {    var c *hchan    c = new(hchan) 
 
 # 4. 常见用法
 
-# 4.1 单向channel
+## 4.1 单向channel
 
 顾名思义，单向channel指只能用于发送或接收数据，实际上也没有单向channel。
 
@@ -129,7 +129,7 @@ func main() {    var mychan = make(chan int, 10)
 
 mychan是个正常的channel，而readChan()参数限制了传入的channel只能用来读，writeChan()参数限制了传入的channel只能用来写。
 
-# 4.2 select
+## 4.2 select
 
 使用select可以监控多channel，比如监控多个channel，当其中某一个channel有数据时，就从其读出数据。
 
@@ -169,7 +169,7 @@ No element in chan1 and chan2.
 
 通过这个示例想说的是：select的case语句读channel不会阻塞，尽管channel中没有数据。这是由于case语句编译后调用读channel时会明确传入不阻塞的参数，此时读不到数据时不会将当前goroutine加入到等待队列，而是直接返回。
 
-# 4.3 range
+## 4.3 range
 
 通过range可以持续从channel中读出数据，好像在遍历一个数组一样，当channel中没有数据时会阻塞当前goroutine，与读channel时阻塞处理机制一样。
 
@@ -184,3 +184,9 @@ func chanRange(chanName chan int) {
 ```
 
 注意：如果向此channel写数据的goroutine退出时，系统检测到这种情况后会panic，否则range将会永久阻塞。
+
+
+
+# 5.参考资料
+
+- [Diving Deep Into The Golang Channels.](https://codeburst.io/diving-deep-into-the-golang-channels-549fd4ed21a8)
