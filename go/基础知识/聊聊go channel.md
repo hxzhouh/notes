@@ -10,7 +10,7 @@ channel是Golang在语言层面提供的goroutine间的通信方式，比Unix管
 
 
 
-```
+```GO
 type hchan struct {
     qcount   uint           // 当前队列中剩余元素个数
     dataqsiz uint           // 环形队列长度，即可以存放的元素个数
@@ -76,11 +76,16 @@ chan内部实现了一个环形队列作为其缓冲区，队列的长度是创�
 
 创建channel的伪代码如下所示：
 
-
-
-```
-func makechan(t *chantype, size int) *hchan {    var c *hchan    c = new(hchan)    c.buf = malloc(元素类型大小*size)    c.elemsize = 元素类型大小    c.elemtype = 元素类型    c.dataqsiz = size
-    return c}
+```GO
+func makechan(t *chantype, size int) *hchan {    
+    var c *hchan    
+    c = new(hchan)    
+    c.buf = malloc(元素类型大小*size)    
+    c.elemsize = 元素类型大小    
+    c.elemtype = 元素类型    
+    c.dataqsiz = size
+    return c
+}
 ```
 
 # 3.2 向channel写数据
